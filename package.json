@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
-    "prestart": "node buildScripts/startMsg.js",
+    "prestart": "babel-node buildScripts/startMsg.js",
     "start": "npm-run-all --parallel echo-test src:open",
-    "src:open": "node buildScripts/srcServer.js",
+    "src:open": "babel-node buildScripts/srcServer.js",
     "echo-test": "node -p \"console.log('test')\""
   },
   "author": "Giorgi Ghughunishvili",
