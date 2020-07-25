@@ -8,7 +8,8 @@
     "src:open": "babel-node buildScripts/srcServer.js",
     "echo-test": "node -p \"console.log('test')\"",
     "lint": "esw webpack.config.* src buildScripts --color",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --report progress buildScripts/testSetup.js \"src/**/*.test.js\""
   },
   "author": "Giorgi Ghughunishvili",
   "license": "MIT",
