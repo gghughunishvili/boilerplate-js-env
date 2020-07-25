@@ -4,12 +4,13 @@
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel-node buildScripts/startMsg.js",
-    "start": "npm-run-all --parallel echo-test src:open lint:watch",
+    "start": "npm-run-all --parallel echo-test src:open lint:watch test:watch",
     "src:open": "babel-node buildScripts/srcServer.js",
     "echo-test": "node -p \"console.log('test')\"",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
-    "test": "mocha --report progress buildScripts/testSetup.js \"src/**/*.test.js\""
+    "test": "mocha --report progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Giorgi Ghughunishvili",
   "license": "MIT",
