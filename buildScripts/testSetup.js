@@ -1,3 +1,3 @@
-require('babel-register');
+import 'babel-register';
 
 require.extensions['.css'] = function() {};
