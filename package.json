@@ -10,11 +10,13 @@
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --report progress --require babel-register buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node buildScripts/generateMockData"
   },
   "author": "Giorgi Ghughunishvili",
   "license": "MIT",
   "dependencies": {
+    "faker": "^4.1.0",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
