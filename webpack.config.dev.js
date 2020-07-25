@@ -1,12 +1,13 @@
-import path from 'path';
+const path = require('path');
 
 export default {
   debug: true,
   devtool: 'inline-source-map',
   noInfo: false,
-  entry: [
-    path.resolve(__dirname, 'src/index'),
-  ],
+  mode: 'development',
+  entry: {
+    app: './src/index.js'
+  },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'src'),

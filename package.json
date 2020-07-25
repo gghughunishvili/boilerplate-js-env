@@ -6,7 +6,8 @@
     "prestart": "babel-node buildScripts/startMsg.js",
     "start": "npm-run-all --parallel echo-test src:open",
     "src:open": "babel-node buildScripts/srcServer.js",
-    "echo-test": "node -p \"console.log('test')\""
+    "echo-test": "node -p \"console.log('test')\"",
+    "lint": "esw webpack.config.* src buildScripts --color"
   },
   "author": "Giorgi Ghughunishvili",
   "license": "MIT",
