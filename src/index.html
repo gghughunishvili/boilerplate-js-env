@@ -1,7 +1,15 @@
+<!--
+  Ejs syntax
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <% if (htmlWebpackPlugin.options.sentryDSN) { %>
+    <script src="https://browser.sentry-cdn.com/5.20.1/bundle.min.js" integrity="sha384-O8HdAJg1h8RARFowXd2J/testBtjhwQoPesfVILeXzGpJxvyY/test" crossorigin="anonymous">
+    </script>
+    <script>Sentry.init({ dsn: '<%=htmlWebpackPlugin.options.sentryDSN%>' });</script>
+    <% } %>
   </head>
   <body>
     <h1>Users</h1>

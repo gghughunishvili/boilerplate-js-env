@@ -20,7 +20,7 @@ export default {
     filename: '[name].[chunkhash].js'
   },
   plugins: [
-    //
+    // Generate an external css file with a hash in the filename
     new ExtractTextPlugin('[name].[contenthash].css'),
     // Hash the file using md5 so that their names change when the content changes.
     new WebpackMd5Hash(),
@@ -32,7 +32,20 @@ export default {
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      inject: true
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+      inject: true,
+      sentryDSN: 'https://74356test@test421441.ingest.sentry.io/412412'
     }),
     // Eliminate duplicating packages when generating bundle
     new webpack.optimize.DedupePlugin(),
