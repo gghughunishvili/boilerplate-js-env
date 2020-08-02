@@ -1,5 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { template } from 'babel-core';
 
 export default {
   debug: true,
@@ -7,15 +9,26 @@ export default {
   noInfo: false,
   mode: 'development',
   entry: {
-    app: './src/index.js'
+    vendor: path.resolve(__dirname, './src/vendor'),
+    main: path.resolve(__dirname, './src/index'),
   },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   plugins: [
+    // Use CommonsChunkPlugin to create a separate bundle
+    // of vendor libraries so that they are cached separately.
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+    // Create HTML file that includes reference to bundled JS.
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      inject: true
+    }),
     // Eliminate duplicating packages when generating bundle
     new webpack.optimize.DedupePlugin(),
     // Minify JS
